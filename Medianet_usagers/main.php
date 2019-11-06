@@ -31,3 +31,17 @@ $document = new Document();
 $motscles = new MotsCles();
 $type = new Type();
 $usager = new Usager();
+
+// Définition de la route par défaut
+$router->setDefaultRoute('/home/');
+
+// Ajout des toutes les routes dans le tableau routes et des alias dans le tableau alias
+$router->addRoutes('home', '/home/', '\medianet_usagers\MedianetUsagersController', 'viewHome');
+$router->addRoutes('search', '/search/', '\medianet_usagers\MedianetUsagersController', 'viewSearch');
+$router->addRoutes('view', '/view/', '\medianet_usagers\MedianetUsagersController', 'viewView');
+$router->addRoutes('user', '/user/', '\medianet_usagers\MedianetUsagersController', 'viewUser');
+$router->addRoutes('login', '/login/', '\medianet_usagers\MedianetUsagersController', 'viewLogin');
+$router->addRoutes('signup', '/signup/', '\medianet_usagers\MedianetUsagersController', 'viewSignup');
+
+// Execution de la méthode de la route
+$router->run();

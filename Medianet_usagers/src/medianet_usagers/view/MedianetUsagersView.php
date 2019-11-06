@@ -15,7 +15,10 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		$header = '
 			<header> 
 				<button>Menu</button>
-				<input type="text">
+				<form method ="POST" action="' . $this->router->urlFor('search') . '">
+					<input type="text">
+					<button>Rechercher</button>
+				</form>
 				<button>Login</button>
 			</header>';
 
@@ -53,12 +56,13 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		</section>';
 		return $home;
 	}
+	
 	protected function renderBody($selector){
 		$html = $this->renderHeader();
 
 		switch ($selector) {
 			case "viewSearch":
-				$html.= $this->renderTweet();
+				$html.= $this->renderSearch();
 				break;
 			case "viewHome":
 				$html.= $this->renderHome();

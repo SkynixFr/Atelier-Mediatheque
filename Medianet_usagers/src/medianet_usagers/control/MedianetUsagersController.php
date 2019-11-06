@@ -12,4 +12,10 @@ class MedianetUsagersController extends \mf\control\AbstractController {
     	$vue = new \medianet_usagers\view\MedianetUsagersView();
     	$vue->render("viewHome");
     }
+    public function viewSearch(){
+    	$vue = new \medianet_usagers\view\MedianetUsagersView();
+    	$vue->render("viewSearch");
+    	
+    }
 }
+

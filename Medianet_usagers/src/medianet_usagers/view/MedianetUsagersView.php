@@ -16,7 +16,7 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 			<header> 
 				<button>Menu</button>
 				<form method ="POST" action="' . $this->router->urlFor('search') . '">
-					<input type="text">
+					<input type="text" name="rechercher">
 					<button>Rechercher</button>
 				</form>
 				<button>Login</button>
@@ -56,7 +56,25 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		</section>';
 		return $home;
 	}
-	
+
+	private function renderSearch(){
+		$search = '
+		<section>
+			<form method ="POST" action="">
+				<input type="text">
+				<input type="text">
+			</form>
+		</section>
+		<section>
+			<ul>
+				<li>Lorem ipsum</li>
+				<li>Lorem ipsum</li>
+			</ul>
+		</section>
+		';
+		return $search;
+	}
+
 	protected function renderBody($selector){
 		$html = $this->renderHeader();
 

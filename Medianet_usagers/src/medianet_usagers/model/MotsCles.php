@@ -1,22 +1,23 @@
 <?php 
 
-namespace medianet_usagers\model;
+namespace medianet_usagers\model; // Espace de noms
 
-class MotsCles extends \Illuminate\Database\Eloquent\Model {
-
+class MotsCles extends \Illuminate\Database\Eloquent\Model { //  Définition de la classe
+	
+	// Définition des variables de la table
     protected $table = 'motscles';
     protected $primaryKey = 'id';
     public $timestamps = false;
 
-public function recherche(){
-	return $this -> belongsToMany('medianet_usagers\model\Document','motscles','recherche','reference');
+	/* Récupère tous les documents d'un motclé */
+	public function recherche(){
+		return $this -> belongsToMany('medianet_usagers\model\Document','recherche','motcle','reference');
+
+		/*
+		*	medianet_usagers\model\Document = La classe du model lié 
+		*	recherche = Nom de la table pivot
+		*	motcle = Nom de la clé étrangère de la table pivot 
+		*	reference = Nom de la clé étrangère de la table pivot
+		*/
+	}
 }
-
-}
-
-//medianet_usagers "référence à la classe Document.php dans le dossier model"
-//motscles "nom de la table référence"
-//recherche "nom de la table pivot"
-//reference "clé étrangère dans la table pivot"
-
-

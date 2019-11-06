@@ -6,8 +6,8 @@ class Document extends \Illuminate\Database\Eloquent\Model{ //  Définition de l
 	
 	// Définition des variables de la table
 	protected $table = 'document';
-	protected $primaryKey = 'ref';
-	protected $timestamps = false;
+	protected $primaryKey = 'id';
+	public $timestamps = false;
 
 	/* Récupère tous les types d'un document */
 	public function types(){

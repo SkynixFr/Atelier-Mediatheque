@@ -1,7 +1,7 @@
 <?php 
 
 // Chargement de la configuration de la BD
-$config = parse_ini_file("conf/config.ini");
+$config = parse_ini_file("conf/conf.ini");
 
 // Chargement des Autoloadeurs;
 require_once 'src/mf/utils/ClassLoader.php';
@@ -20,6 +20,14 @@ $db->bootEloquent();
 
 // Définition des uses
 use \mf\router\Router;
+use \medianet_usagers\model\Document;
+use \medianet_usagers\model\MotsCles;
+use \medianet_usagers\model\Type;
+use \medianet_usagers\model\Usager;
 
 // Instanciation des classes
 $router = new Router();
+$document = new Document();
+$motscles = new MotsCles();
+$type = new Type();
+$usager = new Usager();

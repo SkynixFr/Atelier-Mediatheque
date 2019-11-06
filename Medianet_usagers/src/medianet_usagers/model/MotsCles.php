@@ -14,4 +14,9 @@ public function recherche(){
 
 }
 
+//medianet_usagers "référence à la classe Document.php dans le dossier model"
+//motscles "nom de la table référence"
+//recherche "nom de la table pivot"
+//reference "clé étrangère dans la table pivot"
+
 

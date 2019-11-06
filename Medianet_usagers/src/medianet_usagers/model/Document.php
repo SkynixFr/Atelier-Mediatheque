@@ -10,6 +10,10 @@ class Document extends \Illuminate\Database\Eloquent\Model{ //  Définition de l
 	protected $timestamps = false;
 
 	public function types(){
-		
+		return $this->belongsToMany('medianet_usagers\model\Type', 'media', 'reference', 'type');
+	}
+
+	public function usager(){
+		return $this->belongsToMany('medianet_usagers\model\Usager', 'emprunt', 'document', 'usager');
 	}
 }

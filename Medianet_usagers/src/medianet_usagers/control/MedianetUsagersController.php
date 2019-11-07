@@ -12,6 +12,21 @@ class MedianetUsagersController extends \mf\control\AbstractController {
     	$vue = new \medianet_usagers\view\MedianetUsagersView();
     	$vue->render("viewHome");
     }
+<<<<<<< HEAD
+    
+    public function viewUsager(){
+    	if(isset($this->request->get['id'])){
+            $id = $this->request->get['id'];
+        }else{
+            $router = new \mf\router\Router();
+            $alias = "default";
+            $router->executeRoute($alias);
+        }
+        $requete = \medianet_usagers\model\Usager::where('id','=',$id)->first();
+    	$vue = new \medianet_usagers\view\MedianetUsagersView($requete);
+    	$vue->render("viewUsager");
+    }
+=======
     public function viewSignup(){
     	
     	$vue = new \medianet_usagers\view\MedianetUsagersView();
@@ -43,5 +58,6 @@ class MedianetUsagersController extends \mf\control\AbstractController {
 			}
         
    	 }
+>>>>>>> aba016b6753a384e6cbee5acff32c7841f9d6a98
 
 }

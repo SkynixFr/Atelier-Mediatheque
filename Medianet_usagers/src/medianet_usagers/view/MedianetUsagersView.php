@@ -53,6 +53,34 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		</section>';
 		return $home;
 	}
+<<<<<<< HEAD
+
+	private function renderUsager(){
+		$valueUsager = $this->data;	
+		$usager = '
+		<section>
+			<!-- <img> -->
+			<p>Nom = '. $valueUsager->nom .'</p>
+			<p>Prénom = '. $valueUsager->prenom .'</p>
+			<p>Age = '. $valueUsager->age .'</p>
+			<p>Date de Naissance = '. $valueUsager->datenaissance .'</p>
+			<p>Email = '. $valueUsager->email .'</p>
+			<p>Telephone = '. $valueUsager->telephone .'</p>
+			<p>Adresse = '. $valueUsager->adresse .'</p>
+		</section>
+		<section>
+			<article>
+				<h1>Nom du Document emprunté</h1>
+				<ul>
+					<li>Date Emprunt = ?? et Date Retour = ??</li>	
+					<li>Date Emprunt = ?? et Date Retour = ??</li>
+				</ul>
+			</article>
+		</section>
+		';
+		return $usager;
+	}
+=======
 		private function renderSignup(){
 		$signup = '
 		<form method="post" action="' . $this->router->urlFor('send') . '">
@@ -67,6 +95,7 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 			
 			<button>SignUp</button>
 		</form>
+>>>>>>> aba016b6753a384e6cbee5acff32c7841f9d6a98
 
 
 	';

@@ -42,8 +42,10 @@ class MedianetUsagersController extends \mf\control\AbstractController {
 		$user->age = $this->request->post['age'];
 		$user->adresse = $this->request->post['adresse'];
 		$user->telephone = $this->request->post['telephone'];
-		$user->motdepasse = $this->request->post['motdepasse'];
 		
+        $user->motdepasse = password_hash($this->request->post['motdepasse'], PASSWORD_DEFAULT);
+        
+        
 		$user->etat = 0;
 		$user->numadherent = null;
 		$user->dateadhesion = null;
@@ -64,7 +66,8 @@ class MedianetUsagersController extends \mf\control\AbstractController {
     public function sendLogin(){
         $vue = new \medianet_usagers\view\MedianetUsagersView();
         $userBd = \medianet_usagers\model\Usager::where('email', '=', $this->request->post['email'])->first();
-        if ($userBd->motdepasse === $this->request->post['motdepasse']){
+        
+        if (password_verify($this->request->post['motdepasse'], $userBd->motdepasse)){
             $vue->render("viewHome");
         }else {
             $erreur = $this->request->post['messageErreur'];

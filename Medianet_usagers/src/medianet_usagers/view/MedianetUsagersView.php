@@ -17,6 +17,8 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 				<a href="' . $this->router->urlFor('home') . '" >Home </a>
 				<input type="text">
 				<a href="' . $this->router->urlFor('login') . '" >Login </a>
+				<p>Pas encore enregistrer ? Créez votre compte</p>
+				<a href="' . $this->router->urlFor('signup') . '" >Signup </a>
 			</header>';
 
 		return $header;

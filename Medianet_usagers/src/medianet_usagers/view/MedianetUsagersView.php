@@ -55,24 +55,28 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 	}
 
 	private function renderUsager(){
+		
+		$httprequest = new \mf\utils\HttpRequest();
+		$default = $httprequest->root;
+
 		$valueUsager = $this->data;	
 		$usager = '
 		<section>
-			<!-- <img> -->
-			<p>Nom = '. $valueUsager->nom .'</p>
-			<p>Prénom = '. $valueUsager->prenom .'</p>
-			<p>Age = '. $valueUsager->age .'</p>
-			<p>Date de Naissance = '. $valueUsager->datenaissance .'</p>
-			<p>Email = '. $valueUsager->email .'</p>
-			<p>Telephone = '. $valueUsager->telephone .'</p>
-			<p>Adresse = '. $valueUsager->adresse .'</p>
+			<img src = "'. $default .'/'. $valueUsager->pdp .'" alt="pdp">
+			<p>Nom : '. $valueUsager->nom .'</p>
+			<p>Prénom : '. $valueUsager->prenom .'</p>
+			<p>Age : '. $valueUsager->age .'</p>
+			<p>Date de Naissance : '. $valueUsager->datenaissance .'</p>
+			<p>Email : '. $valueUsager->email .'</p>
+			<p>Telephone : '. $valueUsager->telephone .'</p>
+			<p>Adresse : '. $valueUsager->adresse .'</p>
 		</section>
 		<section>
 			<article>
 				<h1>Nom du Document emprunté</h1>
 				<ul>
-					<li>Date Emprunt = ?? et Date Retour = ??</li>	
-					<li>Date Emprunt = ?? et Date Retour = ??</li>
+					<li>Date Emprunt : ?? et Date Retour : ??</li>	
+					<li>Date Emprunt : ?? et Date Retour : ??</li>
 				</ul>
 			</article>
 		</section>

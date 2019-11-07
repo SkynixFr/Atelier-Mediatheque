@@ -53,6 +53,11 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		</section>';
 		return $home;
 	}
+
+	private function renderView(){
+		
+	}
+
 	protected function renderBody($selector){
 		$html = $this->renderHeader();
 

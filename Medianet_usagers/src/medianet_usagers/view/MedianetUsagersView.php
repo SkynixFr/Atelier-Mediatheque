@@ -55,7 +55,18 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 	}
 
 	private function renderView(){
-		
+		$view = '
+			<img src="" alt="photo_du_document">
+			<p>Disponnibilité : </p>
+			<ul>
+				<li>Mot clé 1</li>
+				<li>Mot clé 2</li>
+			</ul>
+			<p>Le genre</p>
+			<h1>Titre du document</h1>
+			<p>Description du document</p>
+			';
+			return $view;
 	}
 
 	protected function renderBody($selector){

@@ -53,7 +53,6 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		</section>';
 		return $home;
 	}
-<<<<<<< HEAD
 
 	private function renderUsager(){
 		$valueUsager = $this->data;	
@@ -80,8 +79,8 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		';
 		return $usager;
 	}
-=======
-		private function renderSignup(){
+	
+	private function renderSignup(){
 		$signup = '
 		<form method="post" action="' . $this->router->urlFor('send') . '">
 			<input type="text" name="nom"/> </br>
@@ -95,9 +94,6 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 			
 			<button>SignUp</button>
 		</form>
->>>>>>> aba016b6753a384e6cbee5acff32c7841f9d6a98
-
-
 	';
 		return $signup;
 	}
@@ -114,8 +110,8 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 			case "viewView":
 				$html.= $this->renderUserTweet();
 				break;
-			case "viewUser":
-				$html.= $this->renderFormulaire();
+			case "viewUsager":
+				$html.= $this->renderUsager();
 				break;
 			case "viewLogin":
 				$html.= $this->renderSignUp();

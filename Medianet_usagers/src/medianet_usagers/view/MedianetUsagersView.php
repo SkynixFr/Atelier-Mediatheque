@@ -97,6 +97,18 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 	';
 		return $signup;
 	}
+	private function renderLogin(){
+		$login = '
+		<h1>Vous connectez </h1>
+		<form method="post" action="' . $this->router->urlFor('sendLogin') . '">
+			<input type="mail"/ name="email"></br>
+			<input type="password"/ name="motdepasse"></br>
+			<button>Login</button>
+		</form>
+	';
+		return $login;
+	}
+
 	protected function renderBody($selector){
 		$html = $this->renderHeader();
 
@@ -114,7 +126,7 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 				$html.= $this->renderUsager();
 				break;
 			case "viewLogin":
-				$html.= $this->renderSignUp();
+				$html.= $this->renderLogin();
 				break;
 			case "viewSignup":
 				$html.= $this->renderSignUp();

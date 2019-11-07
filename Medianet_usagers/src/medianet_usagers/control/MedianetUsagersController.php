@@ -55,5 +55,18 @@ class MedianetUsagersController extends \mf\control\AbstractController {
 			}
         
    	 }
+    public function viewLogin(){
+    
+        $vue = new \medianet_usagers\view\MedianetUsagersView();
+        $vue->render("viewLogin");
 
+    }
+    public function sendLogin(){
+        $vue = new \medianet_usagers\view\MedianetUsagersView();
+        $userBd = \medianet_usagers\model\Usager::where('email', '=', $this->request->post['email'])->first();
+        if($userBd->motdepasse == $this->request->post['motdepasse']){
+            $vue->render("viewHome");
+        } 
+
+}
 }

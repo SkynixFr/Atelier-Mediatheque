@@ -14,9 +14,9 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 	public function renderHeader(){
 		$header = '
 			<header> 
-				<button>Menu</button>
+				<a href="' . $this->router->urlFor('home') . '" >Home </a>
 				<input type="text">
-				<button>Login</button>
+				<a href="' . $this->router->urlFor('login') . '" >Login </a>
 			</header>';
 
 		return $header;
@@ -98,11 +98,14 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		return $signup;
 	}
 	private function renderLogin(){
+		$erreur = $this->data;
 		$login = '
 		<h1>Vous connectez </h1>
 		<form method="post" action="' . $this->router->urlFor('sendLogin') . '">
 			<input type="mail"/ name="email"></br>
 			<input type="password"/ name="motdepasse"></br>
+			<input type="hidden" name="messageErreur" value="Vous vous êtes trompé de mot de passe">
+			<p> ' . $erreur . '</p>
 			<button>Login</button>
 		</form>
 	';

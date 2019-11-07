@@ -55,16 +55,41 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 	}
 
 	private function renderView(){
+
+		$httprequest = new \mf\utils\HttpRequest();
+
+		$valueDocument = $this->data;
+		$motscles = $this->data->motcles()->get();
+
+		$indispo = $valueDocument->indisponible;
+		$dispo = $valueDocument->disponible;
+		$titre = $valueDocument->nom;
+		$description = $valueDocument->description;
+		$image = $valueDocument->image;
+
+		if ($dispo == 1 && $indispo != 1) {
+			$etat = 'Disponible';
+			$button = '<a href="#">Emprunter</a>';
+		}
+		else if($dispo != 1  && $indispo == 1){
+			$etat = 'Indisponible';
+		}
+
+		$motcles = '';
+		foreach ($motscles as $key) {
+			$motcles .= '<li>'. $key->motscles .'</li>';
+		}
+
 		$view = '
-			<img src="" alt="photo_du_document">
-			<p>Disponnibilité : </p>
+			<img src="'.$httprequest->root . $image.'" alt="photo_du_document">
+			<p>Disponibilité : '. $etat  .'</p>
+			'.$button.'
 			<ul>
-				<li>Mot clé 1</li>
-				<li>Mot clé 2</li>
+				'.$motcles.'
 			</ul>
-			<p>Le genre</p>
-			<h1>Titre du document</h1>
-			<p>Description du document</p>
+			<p></p>
+			<h1>'. $titre .'</h1>
+			<p>'. $description .'</p>
 			';
 			return $view;
 	}
@@ -80,7 +105,7 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 				$html.= $this->renderHome();
 				break;
 			case "viewView":
-				$html.= $this->renderUserTweet();
+				$html.= $this->renderView();
 				break;
 			case "viewUser":
 				$html.= $this->renderFormulaire();

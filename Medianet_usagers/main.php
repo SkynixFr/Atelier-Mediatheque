@@ -37,11 +37,11 @@ $router->setDefaultRoute('/home/');
 
 // Ajout des toutes les routes dans le tableau routes et des alias dans le tableau alias
 $router->addRoute('home', '/home/', '\medianet_usagers\control\MedianetUsagersController', 'viewHome');
-/*$router->addRoutes('search', '/search/', '\medianet_usagers\control\MedianetUsagersController', 'viewSearch');
-$router->addRoutes('view', '/view/', '\medianet_usagers\control\MedianetUsagersController', 'viewView');*/
+$router->addRoute('search', '/search/', '\medianet_usagers\control\MedianetUsagersController', 'viewSearch');
+$router->addRoute('view', '/view/', '\medianet_usagers\control\MedianetUsagersController', 'viewView');*/
 $router->addRoute('usager', '/usager/', '\medianet_usagers\control\MedianetUsagersController', 'viewUsager');
-/*$router->addRoutes('login', '/login/', '\medianet_usagers\control\MedianetUsagersController', 'viewLogin');
-$router->addRoutes('signup', '/signup/', '\medianet_usagers\control\MedianetUsagersController', 'viewSignup');*/
+$router->addRoute('login', '/login/', '\medianet_usagers\control\MedianetUsagersController', 'viewLogin');
+$router->addRoute('signup', '/signup/', '\medianet_usagers\control\MedianetUsagersController', 'viewSignup');*/
 
 // Execution de la méthode de la route
 $router->run();

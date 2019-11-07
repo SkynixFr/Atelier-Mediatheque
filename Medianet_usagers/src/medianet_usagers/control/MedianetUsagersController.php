@@ -12,6 +12,7 @@ class MedianetUsagersController extends \mf\control\AbstractController {
     	$vue = new \medianet_usagers\view\MedianetUsagersView();
     	$vue->render("viewHome");
     }
+    
     public function viewUsager(){
     	if(isset($this->request->get['id'])){
             $id = $this->request->get['id'];
@@ -24,4 +25,5 @@ class MedianetUsagersController extends \mf\control\AbstractController {
     	$vue = new \medianet_usagers\view\MedianetUsagersView($requete);
     	$vue->render("viewUsager");
     }
+
 }

@@ -53,6 +53,7 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		</section>';
 		return $home;
 	}
+
 	private function renderUsager(){
 		$valueUsager = $this->data;	
 		$usager = '

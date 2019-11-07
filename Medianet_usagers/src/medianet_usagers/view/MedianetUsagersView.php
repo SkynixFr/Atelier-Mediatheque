@@ -54,6 +54,46 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		return $home;
 	}
 
+	private function renderView(){
+
+		$httprequest = new \mf\utils\HttpRequest();
+
+		$valueDocument = $this->data;
+		$motscles = $this->data->motcles()->get();
+
+		$indispo = $valueDocument->indisponible;
+		$dispo = $valueDocument->disponible;
+		$titre = $valueDocument->nom;
+		$description = $valueDocument->description;
+		$image = $valueDocument->image;
+
+		if ($dispo == 1 && $indispo != 1) {
+			$etat = 'Disponible';
+			$button = '<a href="#">Emprunter</a>';
+		}
+		else if($dispo != 1  && $indispo == 1){
+			$etat = 'Indisponible';
+		}
+
+		$motcles = '';
+		foreach ($motscles as $key) {
+			$motcles .= '<li>'. $key->motscles .'</li>';
+		}
+
+		$view = '
+			<img src="'.$httprequest->root . $image.'" alt="photo_du_document">
+			<p>Disponibilité : '. $etat  .'</p>
+			'.$button.'
+			<ul>
+				'.$motcles.'
+			</ul>
+			<p></p>
+			<h1>'. $titre .'</h1>
+			<p>'. $description .'</p>
+			';
+			return $view;
+	}
+  
 	private function renderUsager(){
 		$valueUsager = $this->data;	
 		$usager = '
@@ -97,6 +137,7 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 	';
 		return $signup;
 	}
+  
 	protected function renderBody($selector){
 		$html = $this->renderHeader();
 
@@ -108,7 +149,7 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 				$html.= $this->renderHome();
 				break;
 			case "viewView":
-				$html.= $this->renderUserTweet();
+				$html.= $this->renderView();
 				break;
 			case "viewUsager":
 				$html.= $this->renderUsager();

@@ -42,7 +42,6 @@ $router->addRoute('view', '/view/', '\medianet_usagers\control\MedianetUsagersCo
 $router->addRoute('usager', '/usager/', '\medianet_usagers\control\MedianetUsagersController', 'viewUsager');
 $router->addRoute('login', '/login/', '\medianet_usagers\control\MedianetUsagersController', 'viewLogin');
 $router->addRoute('signup', '/signup/', '\medianet_usagers\control\MedianetUsagersController', 'viewSignup');
-$router->addRoute('signup', '/signup/', '\medianet_usagers\control\MedianetUsagersController', 'viewSignup');
 $router->addRoute('send', '/send/', '\medianet_usagers\control\MedianetUsagersController', 'sendSignup');
 
 // Execution de la méthode de la route

@@ -12,20 +12,62 @@ class MedianetUsagersController extends \mf\control\AbstractController {
     	$vue = new \medianet_usagers\view\MedianetUsagersView();
     	$vue->render("viewHome");
     }
-
-    public function viewView(){
     	
-    	if(isset($this->request->get['id'])){
+    public function viewView(){
+      if(isset($this->request->get['id'])){
             $id = $this->request->get['id'];
         }else{
             $router = new \mf\router\Router();
             $alias = "default";
             $router->executeRoute($alias);
         }
-
     	$x = \medianet_usagers\model\Document::where('id','=', $id)->first();
     	
     	$vue = new \medianet_usagers\view\MedianetUsagersView($x);
     	$vue->render("viewView");
     }
+  
+    public function viewUsager(){
+       if(isset($this->request->get['id'])){
+            $id = $this->request->get['id'];
+        }else{
+            $router = new \mf\router\Router();
+            $alias = "default";
+            $router->executeRoute($alias);
+        }
+      $requete = \medianet_usagers\model\Usager::where('id','=',$id)->first();
+    	$vue = new \medianet_usagers\view\MedianetUsagersView($requete);
+    	$vue->render("viewUsager");
+    }
+
+    public function viewSignup(){
+    	
+    	$vue = new \medianet_usagers\view\MedianetUsagersView();
+    	$vue->render("viewSignup");
+
+    }
+
+    public function sendSignup(){
+    	$vue = new \medianet_usagers\view\MedianetUsagersView();
+        $user = new \medianet_usagers\model\Usager();
+		$user->nom = $this->request->post['nom'];
+		$user->prenom = $this->request->post['prenom'];
+		$user->datenaissance = date('Y-m-d',strtotime($this->request->post['datenaissance']));
+		$user->email = $this->request->post['email'];
+		$user->age = $this->request->post['age'];
+		$user->adresse = $this->request->post['adresse'];
+		$user->telephone = $this->request->post['telephone'];
+		$user->motdepasse = $this->request->post['motdepasse'];
+		
+		$user->etat = 0;
+		$user->numadherent = null;
+		$user->dateadhesion = null;
+		if ($user->motdepasse  != null ){
+			
+			$user->save();
+			 $vue->render("viewHome");
+			
+			}
+        
+   	 }
 }

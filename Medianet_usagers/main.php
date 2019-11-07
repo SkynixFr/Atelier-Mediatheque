@@ -23,7 +23,7 @@ use \mf\router\Router;
 use \medianet_usagers\model\Document;
 use \medianet_usagers\model\MotsCles;
 use \medianet_usagers\model\Type;
-use \medianet_usagers\model\Usager;
+use \medianet_usagers\model\Usager; 
 
 // Instanciation des classes
 $router = new Router();
@@ -38,11 +38,11 @@ $router->setDefaultRoute('/home/');
 // Ajout des toutes les routes dans le tableau routes et des alias dans le tableau alias
 $router->addRoute('home', '/home/', '\medianet_usagers\control\MedianetUsagersController', 'viewHome');
 /*$router->addRoutes('search', '/search/', '\medianet_usagers\control\MedianetUsagersController', 'viewSearch');
-$router->addRoutes('view', '/view/', '\medianet_usagers\control\MedianetUsagersController', 'viewView');*/
-$router->addRoute('usager', '/usager/', '\medianet_usagers\control\MedianetUsagersController', 'viewUsager');
-/*$router->addRoutes('login', '/login/', '\medianet_usagers\control\MedianetUsagersController', 'viewLogin');
-$router->addRoutes('signup', '/signup/', '\medianet_usagers\control\MedianetUsagersController', 'viewSignup');*/
-
+$router->addRoutes('view', '/view/', '\medianet_usagers\control\MedianetUsagersController', 'viewView');
+$router->addRoutes('user', '/user/', '\medianet_usagers\control\MedianetUsagersController', 'viewUser');
+$router->addRoutes('login', '/login/', '\medianet_usagers\control\MedianetUsagersController', 'viewLogin');*/
+$router->addRoute('signup', '/signup/', '\medianet_usagers\control\MedianetUsagersController', 'viewSignup');
+$router->addRoute('send', '/send/', '\medianet_usagers\control\MedianetUsagersController', 'sendSignup');
 // Execution de la méthode de la route
 $router->run();
 

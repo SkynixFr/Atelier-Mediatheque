@@ -53,32 +53,25 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		</section>';
 		return $home;
 	}
-	private function renderUsager(){
-		$valueUsager = $this->data;	
-		$usager = '
-		<section>
-			<!-- <img> -->
-			<p>Nom = '. $valueUsager->nom .'</p>
-			<p>Prénom = '. $valueUsager->prenom .'</p>
-			<p>Age = '. $valueUsager->age .'</p>
-			<p>Date de Naissance = '. $valueUsager->datenaissance .'</p>
-			<p>Email = '. $valueUsager->email .'</p>
-			<p>Telephone = '. $valueUsager->telephone .'</p>
-			<p>Adresse = '. $valueUsager->adresse .'</p>
-		</section>
-		<section>
-			<article>
-				<h1>Nom du Document emprunté</h1>
-				<ul>
-					<li>Date Emprunt = ?? et Date Retour = ??</li>	
-					<li>Date Emprunt = ?? et Date Retour = ??</li>
-				</ul>
-			</article>
-		</section>
-		';
-		return $usager;
-	}
+		private function renderSignup(){
+		$signup = '
+		<form method="post" action="' . $this->router->urlFor('send') . '" action="' . $this->router->urlFor('home') . '">
+			<input type="text" name="nom"/> </br>
+			<input type="text"/ name="prenom"></br>
+			<input type="date"/ name="datenaissance"></br>
+			<input type="mail"/ name="email"></br>
+			<input type="number" name="age"/></br>
+			<input type="text" name="adresse"/></br>
+			<input type="text"/ name="telephone"></br>
+			<input type="password"/ name="motdepasse"></br>
+			
+			<button>SignUp</button>
+		</form>
 
+
+	';
+		return $signup;
+	}
 	protected function renderBody($selector){
 		$html = $this->renderHeader();
 
@@ -92,8 +85,8 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 			case "viewView":
 				$html.= $this->renderUserTweet();
 				break;
-			case "viewUsager":
-				$html.= $this->renderUsager();
+			case "viewUser":
+				$html.= $this->renderFormulaire();
 				break;
 			case "viewLogin":
 				$html.= $this->renderSignUp();

@@ -55,7 +55,7 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 	}
 		private function renderSignup(){
 		$signup = '
-		<form method="post" action="' . $this->router->urlFor('send') . '" action="' . $this->router->urlFor('home') . '">
+		<form method="post" action="' . $this->router->urlFor('send') . '">
 			<input type="text" name="nom"/> </br>
 			<input type="text"/ name="prenom"></br>
 			<input type="date"/ name="datenaissance"></br>

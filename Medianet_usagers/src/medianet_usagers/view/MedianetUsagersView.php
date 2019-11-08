@@ -95,7 +95,7 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 				</div>
 			</section>
 			<section>
-				<h1>Description<h1>
+				<h1>Description</h1>
 				<div class="row">
 					<h2>'. $titre .'</h2>
 					<p>'. $description .'</p>

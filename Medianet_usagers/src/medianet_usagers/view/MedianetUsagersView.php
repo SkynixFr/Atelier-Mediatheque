@@ -18,12 +18,11 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 				<nav>
 					<a href="' . $this->router->urlFor('home') . '" >Home </a>
 					<form method="POST" action ="' . $this->router->urlFor('search') . '">
-						<input type="text" name="recherche">
+						<input type="text" name="recherche" placeholder="Recherche..." title="Recherche">
 						<button>Rechercher</button>
 					</form>
 					<a href="' . $this->router->urlFor('login') . '" >Login </a>
-					<p>Pas encore enregistrer ? Créez votre compte</p>
-					<a href="' . $this->router->urlFor('signup') . '" >Signup </a
+					<a href="' . $this->router->urlFor('signup') . '" >Signup </a>
 				</nav>
 			</header>';
 			 }
@@ -36,7 +35,7 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 						<input type="text" name="recherche">
 						<button>Rechercher</button>
 					</form>
-					<a href="' . $this->router->urlFor('usager') . '" >Mon compte </a>&nbsp;
+					<a href="' . $this->router->urlFor('usager') . '" >Mon compte </a>
 					<form method="post" action="' . $this->router->urlFor('logout') . '">
 						<button> Se déconnecter </button>
 					</form>

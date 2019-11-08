@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 // Chargement de la configuration de la BD
 $config = parse_ini_file("conf/conf.ini");
 
@@ -44,8 +44,6 @@ $router->addRoute('login', '/login/', '\medianet_usagers\control\MedianetUsagers
 $router->addRoute('sendLogin', '/sendLogin/', '\medianet_usagers\control\MedianetUsagersController', 'sendLogin');
 $router->addRoute('signup', '/signup/', '\medianet_usagers\control\MedianetUsagersController', 'viewSignup');
 $router->addRoute('send', '/send/', '\medianet_usagers\control\MedianetUsagersController', 'sendSignup');
-
+$router->addRoute('logout', '/logout/', '\medianet_usagers\control\MedianetUsagersController', 'viewLogout');
 // Execution de la méthode de la route
 $router->run();
-
-	

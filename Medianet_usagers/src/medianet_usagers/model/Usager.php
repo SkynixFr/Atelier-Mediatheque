@@ -20,4 +20,5 @@ class Usager extends \Illuminate\Database\Eloquent\Model{ //  Définition de la 
 		*	document = Nom clé étrangère de latable qui est présent dans la table document
 		*/
     }
+    
 }

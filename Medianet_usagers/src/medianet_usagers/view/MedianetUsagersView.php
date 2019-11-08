@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 namespace medianet_usagers\view;
 
-class MedianetUsagersView extends \mf\view\AbstractView{
+class MedianetUsagersView extends \mf\view\AbstractView {
 
 	private $router;
 
@@ -14,9 +14,11 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 	public function renderHeader(){
 		$header = '
 			<header> 
-				<button>Menu</button>
+				<a href="' . $this->router->urlFor('home') . '" >Home </a>
 				<input type="text">
-				<button>Login</button>
+				<a href="' . $this->router->urlFor('login') . '" >Login </a>
+				<p>Pas encore enregistrer ? Créez votre compte</p>
+				<a href="' . $this->router->urlFor('signup') . '" >Signup </a>
 			</header>';
 
 		return $header;
@@ -104,29 +106,39 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 	}
   
 	private function renderUsager(){
+		
+		$httprequest = new \mf\utils\HttpRequest();
+		$default = $httprequest->root;
+
 		$valueUsager = $this->data;	
+		$emprunts = $valueUsager->documents()->get();
+
 		$usager = '
+		<h1>Vos informations personnelles</h1>
 		<section>
-			<!-- <img> -->
-			<p>Nom = '. $valueUsager->nom .'</p>
-			<p>Prénom = '. $valueUsager->prenom .'</p>
-			<p>Age = '. $valueUsager->age .'</p>
-			<p>Date de Naissance = '. $valueUsager->datenaissance .'</p>
-			<p>Email = '. $valueUsager->email .'</p>
-			<p>Telephone = '. $valueUsager->telephone .'</p>
-			<p>Adresse = '. $valueUsager->adresse .'</p>
+			<p>Nom : '. $valueUsager->nom .'</p>
+			<p>Prénom : '. $valueUsager->prenom .'</p>
+			<p>Age : '. $valueUsager->age .'</p>
+			<p>Date de Naissance : '. $valueUsager->datenaissance .'</p>
+			<p>Email : '. $valueUsager->email .'</p>
+			<p>Telephone : '. $valueUsager->telephone .'</p>
+			<p>Adresse : '. $valueUsager->adresse .'</p>
 		</section>
-		<section>
-			<article>
-				<h1>Nom du Document emprunté</h1>
+		<section>';
+
+		foreach ($emprunts as $key) {
+			$usager .= "<article>
+				<h1>Nom : $key->nom</h1>
 				<ul>
-					<li>Date Emprunt = ?? et Date Retour = ??</li>	
-					<li>Date Emprunt = ?? et Date Retour = ??</li>
+					<li>Date emprunt : a rajouter</li>	
 				</ul>
-			</article>
-		</section>
+			</article>";
+		}
+
+		$usager.= '</section>
 		';
 		return $usager;
+		
 	}
 	
 	private function renderSignup(){
@@ -146,7 +158,20 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 	';
 		return $signup;
 	}
-  
+	private function renderLogin(){
+		$erreur = $this->data;
+		$login = '
+		<h1>Vous connectez </h1>
+		<form method="post" action="' . $this->router->urlFor('sendLogin') . '">
+			<input type="mail"/ name="email"></br>
+			<input type="password"/ name="motdepasse"></br>
+			<input type="hidden" name="messageErreur" value="Vous vous êtes trompé de mot de passe">
+			<p> ' . $erreur . '</p>
+			<button>Login</button>
+		</form>
+	';
+		return $login;
+	}
 	protected function renderBody($selector){
 		$html = $this->renderHeader();
 
@@ -164,7 +189,7 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 				$html.= $this->renderUsager();
 				break;
 			case "viewLogin":
-				$html.= $this->renderSignUp();
+				$html.= $this->renderLogin();
 				break;
 			case "viewSignup":
 				$html.= $this->renderSignUp();

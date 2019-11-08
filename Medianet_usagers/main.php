@@ -41,6 +41,7 @@ $router->addRoute('search', '/search/', '\medianet_usagers\control\MedianetUsage
 $router->addRoute('view', '/view/', '\medianet_usagers\control\MedianetUsagersController', 'viewView');
 $router->addRoute('usager', '/usager/', '\medianet_usagers\control\MedianetUsagersController', 'viewUsager');
 $router->addRoute('login', '/login/', '\medianet_usagers\control\MedianetUsagersController', 'viewLogin');
+$router->addRoute('sendLogin', '/sendLogin/', '\medianet_usagers\control\MedianetUsagersController', 'sendLogin');
 $router->addRoute('signup', '/signup/', '\medianet_usagers\control\MedianetUsagersController', 'viewSignup');
 $router->addRoute('send', '/send/', '\medianet_usagers\control\MedianetUsagersController', 'sendSignup');
 

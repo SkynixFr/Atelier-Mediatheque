@@ -75,8 +75,8 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 			'; 
 				foreach ($motscles as $value) {
 					$home .= "<li> $value->motscles </li>";
-				}
-			</article>
+				};
+			$home .= '</article>
 		</section>';
 		return $home;
 	}

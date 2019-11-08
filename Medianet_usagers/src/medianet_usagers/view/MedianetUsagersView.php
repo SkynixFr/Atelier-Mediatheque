@@ -27,9 +27,10 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 	public function renderFooter(){
 		$footer = '
 			<footer>
-				<p> Créée par les steack</p>
-				<a> Nous contacter !!! </a>
-			</footer>';
+	    		<p> Créée par les steack</p>
+	    		<a href="#">Nous contacter</a>
+	    		<p>Projet CIASIE</p>
+    		</footer>';
 		return $footer;
 	}
 
@@ -70,11 +71,11 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 		$image = $valueDocument->image;
 
 		if ($dispo == 1 && $indispo != 1) {
-			$etat = 'Disponible';
+			$etat = '<span class="available">Disponible</span>';
 			$button = '<a href="#">Emprunter</a>';
 		}
 		else if($dispo != 1  && $indispo == 1){
-			$etat = 'Indisponible';
+			$etat = '<span>Indisponible</span>';
 		}
 
 		$motcles = '';
@@ -83,15 +84,23 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 		}
 
 		$view = '
-			<img src="'.$httprequest->root . $image.'" alt="photo_du_document">
-			<p>Disponibilité : '. $etat  .'</p>
-			'.$button.'
-			<ul>
-				'.$motcles.'
-			</ul>
-			<p></p>
-			<h1>'. $titre .'</h1>
-			<p>'. $description .'</p>
+			<section>
+				<div class="row">
+					<img src="'.$httprequest->root . $image.'" alt="photo_du_document">
+					<p>Disponibilité : '. $etat  .'</p>
+					'.$button.'
+					<ul>
+						'.$motcles.'
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h1>Description<h1>
+				<div class="row">
+					<h2>'. $titre .'</h2>
+					<p>'. $description .'</p>
+				</div>
+			</section>	
 			';
 			return $view;
 	}

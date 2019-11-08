@@ -1,3 +1,40 @@
+h1 {
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  min-width: 300px;
+  width: 30%;
+  margin: auto;
+  background-color: #2a303a;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
 
+form {
+  margin: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  min-width: 300px;
+  width: 30%;
+  margin: auto;
+}
+
+input {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+label {
+  margin-top: 20px;
+  margin-left: 25px;
+}
 
 /*# sourceMappingURL=style_login.css.map */

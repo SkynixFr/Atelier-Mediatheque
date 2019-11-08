@@ -106,20 +106,20 @@ abstract class AbstractView {
         $styles = '';
         foreach ( self::$style_sheets as $file ){
             if ($selector == 'viewView'){
-            $styles .= '<link rel="stylesheet" href="'.$app_root.'css'.'/style_view.css">';
+            $styles .= '<link rel="stylesheet" href="'.$app_root.'/css'.'/style_view.css">';
             }
 
-            elseif ($selector == 'viewUsager') {
-                $styles .= '<link rel="stylesheet" href="'.$app_root.'css'.'/style_user.css">';
+            if ($selector == 'viewUsager') {
+                $styles .= '<link rel="stylesheet" href="'.$app_root.'/css'.'/style_user.css">';
             }
-            elseif ($selector == 'viewLogin') {
-                $styles .= '<link rel="stylesheet" href="'.$app_root.'css'.'/style_login.css">';
+            if ($selector == 'viewLogin') {
+                $styles .= '<link rel="stylesheet" href="'.$app_root.'/css'.'/style_login.css">';
             }
-            elseif ($selector == 'viewSignUp') {
-                $styles .= '<link rel="stylesheet" href="'.$app_root.'css'.'/style_signup.css">';
+            if ($selector == 'viewSignup') {
+                $styles .= '<link rel="stylesheet" href="'.$app_root.'/css'.'/style_signup.css">';
             }
 
-            $styles .= '<link rel="stylesheet" href="'.$app_root.$file.'"> ';
+            $styles .= '<link rel="stylesheet" href="'.$app_root.'/'.$file.'"> ';
         }
 
         /* on appele la methode renderBody de la sous classe */

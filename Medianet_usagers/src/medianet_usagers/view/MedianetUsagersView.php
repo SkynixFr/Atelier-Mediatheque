@@ -12,7 +12,9 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 	}
 
 	public function renderHeader(){
-		$header = '
+		if ( !isset($_SESSION["mdp"])){ 
+			var_dump($_SESSION);
+			$header = '
 			<header> 
 				<a href="' . $this->router->urlFor('home') . '" >Home </a>
 				<input type="text">
@@ -20,7 +22,20 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 				<p>Pas encore enregistrer ? Créez votre compte</p>
 				<a href="' . $this->router->urlFor('signup') . '" >Signup </a>
 			</header>';
+			 }
+		else{
+			$header ='			
+			<header> 
+				<a href="' . $this->router->urlFor('home') . '" >Home </a>
+				<input type="text">
+				<a href="' . $this->router->urlFor('usager') . '" >Mon compte </a>&nbsp;
+				<form method="post" action="' . $this->router->urlFor('logout') . '">
+					<button> Se déconnecter </button>
+				</form>
+			</header>';
+		}
 
+	
 		return $header;
 	}
 
@@ -174,7 +189,7 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 	}
 	protected function renderBody($selector){
 		$html = $this->renderHeader();
-
+		
 		switch ($selector) {
 			case "viewSearch":
 				$html.= $this->renderTweet();
@@ -193,7 +208,7 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 				break;
 			case "viewSignup":
 				$html.= $this->renderSignUp();
-				break;	
+				break;
 			default:
 				$html.= $this->renderHome();
 				break;

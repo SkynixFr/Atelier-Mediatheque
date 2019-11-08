@@ -30,6 +30,7 @@ class MedianetUsagersController extends \mf\control\AbstractController {
       $requete = \medianet_usagers\model\Usager::where('id','=',$id)->first();
     	$vue = new \medianet_usagers\view\MedianetUsagersView($requete);
     	$vue->render("viewUsager");
+
     }
 
     public function viewSignup(){
@@ -59,7 +60,7 @@ class MedianetUsagersController extends \mf\control\AbstractController {
 		if ($user->motdepasse  != null ){
 			
 			$user->save();
-			 $vue->render("viewHome");
+			 $vue->render("viewLogin");
 			
 			}
         
@@ -75,13 +76,23 @@ class MedianetUsagersController extends \mf\control\AbstractController {
         $userBd = \medianet_usagers\model\Usager::where('email', '=', $this->request->post['email'])->first();
         
         if (password_verify($this->request->post['motdepasse'], $userBd->motdepasse)){
+
+            $_SESSION["email"] = $this->request->post['email'];
+            $_SESSION["mdp"] = $this->request->post['motdepasse'];
             $vue->render("viewHome");
+
         }else {
             $erreur = $this->request->post['messageErreur'];
             $vue = new \medianet_usagers\view\MedianetUsagersView($erreur);      
             $vue->render("viewLogin");
         }
 
+    }
+    public function viewLogout(){
+        
+        $vue = new \medianet_usagers\view\MedianetUsagersView();
+        $vue->render("viewHome");
+        session_destroy();  
     }
 
 

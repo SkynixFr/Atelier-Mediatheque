@@ -79,6 +79,7 @@ class MedianetUsagersController extends \mf\control\AbstractController {
 
             $_SESSION["email"] = $this->request->post['email'];
             $_SESSION["mdp"] = $this->request->post['motdepasse'];
+            $_SESSION["id"] = $userBd->id;
             $vue->render("viewHome");
 
         }else {

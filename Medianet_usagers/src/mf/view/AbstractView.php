@@ -115,7 +115,7 @@ abstract class AbstractView {
             if ($selector == 'viewLogin') {
                 $styles .= '<link rel="stylesheet" href="'.$app_root.'/css'.'/style_login.css">';
             }
-            if ($selector == 'viewSignup') {
+            if ($selector == 'viewSignUp') {
                 $styles .= '<link rel="stylesheet" href="'.$app_root.'/css'.'/style_signup.css">';
             }
 

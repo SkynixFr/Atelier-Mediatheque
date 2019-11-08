@@ -12,11 +12,15 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 	}
 
 	public function renderHeader(){
+
 		if ( !isset($_SESSION["mdp"]) && !isset($_SESSION["email"])){ 
 			$header = '
 			<header> 
 				<a href="' . $this->router->urlFor('home') . '" >Home </a>
-				<input type="text">
+				<form method="POST" action ="' . $this->router->urlFor('search') . '">
+					<input type="text" name="recherche">
+					<button>Rechercher</button>
+				</form>
 				<a href="' . $this->router->urlFor('login') . '" >Login </a>
 				<p>Pas encore enregistrer ? Créez votre compte</p>
 				<a href="' . $this->router->urlFor('signup') . '" >Signup </a>
@@ -28,6 +32,11 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 				<a href="' . $this->router->urlFor('home') . '" >Home </a>
 				<input type="text">
 				<a href="' . $this->router->urlFor('usager', ['id' => $_SESSION['id']]) . '" >Mon compte </a>&nbsp;
+				<form method="POST" action ="' . $this->router->urlFor('search') . '">
+					<input type="text" name="recherche">
+					<button>Rechercher</button>
+				</form>
+				<a href="' . $this->router->urlFor('usager') . '" >Mon compte </a>&nbsp;
 				<form method="post" action="' . $this->router->urlFor('logout') . '">
 					<button> Se déconnecter </button>
 				</form>
@@ -187,12 +196,26 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 	';
 		return $login;
 	}
+
+	private function renderSearch(){
+		$recherche  = $this->data;
+		$search = '
+		<section>
+			<h1>Titre<h1>
+			<ul>';
+			foreach ($recherche as $value) {
+				$search .= "<li> Nom : $value->nom | Type : $value->type | Genre : $value->genre </li>";
+			};
+			$search .='</ul>';
+
+		return $search;
+	}
 	protected function renderBody($selector){
 		$html = $this->renderHeader();
 		
 		switch ($selector) {
 			case "viewSearch":
-				$html.= $this->renderTweet();
+				$html.= $this->renderSearch();
 				break;
 			case "viewHome":
 				$html.= $this->renderHome();

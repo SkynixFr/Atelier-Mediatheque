@@ -1,3 +1,42 @@
+html {
+  font-family: 'Lato', sans-serif; }
 
+body {
+  background-color: grey; }
+
+h1 {
+  text-align: center;
+}
+section {
+  background-color: white;
+  margin: 15px;
+  border-radius: 5px;
+  padding: 5px; }
+
+p:first-of-type {
+  display: inline-block;
+  margin-bottom: 0px; }
+
+p:nth-of-type(2) {
+  display: inline-block;
+  margin-left: 1em;
+  margin-bottom: 0px; }
+
+section:nth-of-type(2) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; }
+
+article {
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin-left: 2.5em;
+  margin-top: 1em;
+  border-radius: 5px;
+  padding: 5px;
+  width: 25%; }
+
+article li {
+  list-style: none; }
 
 /*# sourceMappingURL=style_user.css.map */

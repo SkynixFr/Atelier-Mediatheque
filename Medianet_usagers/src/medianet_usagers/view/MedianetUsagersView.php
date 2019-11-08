@@ -13,7 +13,6 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 
 	public function renderHeader(){
 		if ( !isset($_SESSION["mdp"])){ 
-			var_dump($_SESSION);
 			$header = '
 			<header> 
 				<a href="' . $this->router->urlFor('home') . '" >Home </a>

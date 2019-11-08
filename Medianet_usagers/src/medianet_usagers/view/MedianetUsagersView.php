@@ -15,28 +15,32 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 		if ( !isset($_SESSION["mdp"])){ 
 			$header = '
 			<header> 
-				<a href="' . $this->router->urlFor('home') . '" >Home </a>
-				<form method="POST" action ="' . $this->router->urlFor('search') . '">
-					<input type="text" name="recherche">
-					<button>Rechercher</button>
-				</form>
-				<a href="' . $this->router->urlFor('login') . '" >Login </a>
-				<p>Pas encore enregistrer ? Créez votre compte</p>
-				<a href="' . $this->router->urlFor('signup') . '" >Signup </a>
+				<nav>
+					<a href="' . $this->router->urlFor('home') . '" >Home </a>
+					<form method="POST" action ="' . $this->router->urlFor('search') . '">
+						<input type="text" name="recherche">
+						<button>Rechercher</button>
+					</form>
+					<a href="' . $this->router->urlFor('login') . '" >Login </a>
+					<p>Pas encore enregistrer ? Créez votre compte</p>
+					<a href="' . $this->router->urlFor('signup') . '" >Signup </a
+				</nav>
 			</header>';
 			 }
 		else{
 			$header ='			
 			<header> 
-				<a href="' . $this->router->urlFor('home') . '" >Home </a>
-				<form method="POST" action ="' . $this->router->urlFor('search') . '">
-					<input type="text" name="recherche">
-					<button>Rechercher</button>
-				</form>
-				<a href="' . $this->router->urlFor('usager') . '" >Mon compte </a>&nbsp;
-				<form method="post" action="' . $this->router->urlFor('logout') . '">
-					<button> Se déconnecter </button>
-				</form>
+				<nav>
+					<a href="' . $this->router->urlFor('home') . '" >Home </a>
+					<form method="POST" action ="' . $this->router->urlFor('search') . '">
+						<input type="text" name="recherche">
+						<button>Rechercher</button>
+					</form>
+					<a href="' . $this->router->urlFor('usager') . '" >Mon compte </a>&nbsp;
+					<form method="post" action="' . $this->router->urlFor('logout') . '">
+						<button> Se déconnecter </button>
+					</form>
+				</nav>
 			</header>';
 		}
 
@@ -55,23 +59,23 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 	}
 
 	private function renderHome(){
+		$motscles = $this->data;
 		$home = '
 		<section>
 			<article>
 				<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n\'a pas fait que survivre cinq siècles, mais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker. </p>
 			</article>
 			<article>
-				<p> Besoin d\'aide ? Nous contacter dayromain@yahoo.fr </p>
+				<p> Besoin d\'aide ? zinniArthur@email.fr pallaraHugo@email.fr melignerLudovic@email.fr dayRomain@email.fr</p>
 			</article>
 		</section>
 		<section>
 			<article>
-				Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est
-				le faux texte standard de l\'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de 
-				texte pour réaliser un livre spécimen de polices de texte. Il n\'a pas fait que survivre cinq siècles, mais s\'est aussi adapté 
-				à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la 
-				vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de 
-				mise en page de texte, comme Aldus PageMaker.
+				<ul>
+			'; 
+				foreach ($motscles as $value) {
+					$home .= "<li> $value->motscles </li>";
+				}
 			</article>
 		</section>';
 		return $home;
@@ -106,7 +110,7 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 		$view = '
 			<section>
 				<div class="row">
-					<img src="'.$httprequest->root . $image.'" alt="photo_du_document">
+					<img src="'.$httprequest->root . '/' . $image.'" alt="photo_du_document">
 					<p>Disponibilité : '. $etat  .'</p>
 					'.$button.'
 					<ul>

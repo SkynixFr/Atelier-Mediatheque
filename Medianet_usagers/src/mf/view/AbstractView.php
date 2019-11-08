@@ -118,6 +118,9 @@ abstract class AbstractView {
             if ($selector == 'viewSignUp') {
                 $styles .= '<link rel="stylesheet" href="'.$app_root.'/css'.'/style_signup.css">';
             }
+            if ($selector == 'viewHome') {
+                $styles .= '<link rel="stylesheet" href="'.$app_root.'/css'.'/style_home.css">';
+            }
 
             $styles .= '<link rel="stylesheet" href="'.$app_root.'/'.$file.'"> ';
         }

@@ -3,7 +3,7 @@ html {
   height: 100%;
 }
 
-header {
+header nav {
 	background-color: #2a303a;
 	padding: 10px;
 	margin-bottom: 1em;
@@ -13,11 +13,13 @@ header {
 }
 
 body {
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
-  padding-bottom: 5em;
-  position: relative;
+	font-family: 'Lato', sans-serif;
+	background-color: #2e3943;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 5em;
+	position: relative;
 }
 
 footer {

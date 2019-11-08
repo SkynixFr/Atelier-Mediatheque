@@ -16,7 +16,7 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 // Ajout des css
-/*src\nomprojet\view\???::addStyleSheet('css/???.css');*/
+\medianet_usagers\view\MedianetUsagersView::addStyleSheet('css/style.css');
 
 // Définition des uses
 use \mf\router\Router;

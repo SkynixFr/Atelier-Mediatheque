@@ -104,8 +104,13 @@ abstract class AbstractView {
         /* les feuilles de style */
         $app_root = (new \mf\utils\HttpRequest())->root;
         $styles = '';
-        foreach ( self::$style_sheets as $file )
-            $styles .= '<link rel="stylesheet" href="'.$app_root.'/'.$file.'"> ';
+        foreach ( self::$style_sheets as $file ){
+            if ($selector == 'viewView'){
+            $styles .= '<link rel="stylesheet" href="'.$app_root.'css'.'/style_view.css">';
+            }
+
+            $styles .= '<link rel="stylesheet" href="'.$app_root.$file.'"> ';
+        }
 
         /* on appele la methode renderBody de la sous classe */
         $body = $this->renderBody($selector);

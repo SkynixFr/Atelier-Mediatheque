@@ -1,3 +1,48 @@
+header {
+	background-color: #2a303a;
+	padding: 10px;
+	margin-bottom: 1em;
+	width: 100%;
+
+	margin-left: 0%;
+	margin-right: 0%;
+}
+
+footer {
+	background-color: #2a303a;
+	padding: 30px;
+	margin-top: 1em;
+	color: white;
+	font-weight: 570;
+	display: flex;
+	flex-wrap:  wrap;
+	flex-direction: row;
+	
+	&> * {
+		margin-left: 2em;
+	}
+
+	&> a {
+		color: white;
+
+	}
+
+	&> p {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+}
+
+section {
+	margin-top: 5em;
+	background-color: white;
+	margin: 20px;
+	border-radius: 5px;
+	padding: 10px;
+}
+
 body {
-	color: chocolate;
+	background-color: #2e3943;
+	margin : 0px;
+	font-family: 'Lato', sans-serif
 }

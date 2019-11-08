@@ -44,4 +44,5 @@ class Document extends \Illuminate\Database\Eloquent\Model{ //  Définition de l
 		*	usager = Nom de la clé étrangère de la table pivot
 		*/
 	}
+	
 }

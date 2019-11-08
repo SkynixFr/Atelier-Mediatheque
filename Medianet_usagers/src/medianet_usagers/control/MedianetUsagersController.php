@@ -16,10 +16,6 @@ class MedianetUsagersController extends \mf\control\AbstractController {
     public function viewView(){
       if(isset($this->request->get['id'])){
             $id = $this->request->get['id'];
-        }else{
-            $router = new \mf\router\Router();
-            $alias = "default";
-            $router->executeRoute($alias);
         }
     	$x = \medianet_usagers\model\Document::where('id','=', $id)->first();
     	
@@ -30,10 +26,6 @@ class MedianetUsagersController extends \mf\control\AbstractController {
     public function viewUsager(){
        if(isset($this->request->get['id'])){
             $id = $this->request->get['id'];
-        }else{
-            $router = new \mf\router\Router();
-            $alias = "default";
-            $router->executeRoute($alias);
         }
       $requete = \medianet_usagers\model\Usager::where('id','=',$id)->first();
     	$vue = new \medianet_usagers\view\MedianetUsagersView($requete);

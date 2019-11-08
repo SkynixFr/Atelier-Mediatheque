@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 namespace medianet_usagers\view;
 
-class MedianetUsagersView extends \mf\view\AbstractView{
+class MedianetUsagersView extends \mf\view\AbstractView {
 
 	private $router;
 
@@ -102,9 +102,11 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 		$default = $httprequest->root;
 
 		$valueUsager = $this->data;	
+		$emprunts = $valueUsager->documents()->get();
+
 		$usager = '
+		<h1>Vos informations personnelles</h1>
 		<section>
-			<img src = "'. $default .'/'. $valueUsager->pdp .'" alt="pdp">
 			<p>Nom : '. $valueUsager->nom .'</p>
 			<p>Prénom : '. $valueUsager->prenom .'</p>
 			<p>Age : '. $valueUsager->age .'</p>
@@ -113,17 +115,21 @@ class MedianetUsagersView extends \mf\view\AbstractView{
 			<p>Telephone : '. $valueUsager->telephone .'</p>
 			<p>Adresse : '. $valueUsager->adresse .'</p>
 		</section>
-		<section>
-			<article>
-				<h1>Nom du Document emprunté</h1>
+		<section>';
+
+		foreach ($emprunts as $key) {
+			$usager .= "<article>
+				<h1>Nom : $key->nom</h1>
 				<ul>
-					<li>Date Emprunt : ?? et Date Retour : ??</li>	
-					<li>Date Emprunt : ?? et Date Retour : ??</li>
+					<li>Date emprunt : a rajouter</li>	
 				</ul>
-			</article>
-		</section>
+			</article>";
+		}
+
+		$usager.= '</section>
 		';
 		return $usager;
+		
 	}
 	
 	private function renderSignup(){

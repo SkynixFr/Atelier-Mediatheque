@@ -187,9 +187,9 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 		$erreur = $this->data;
 		$login = '
 		<h1>Vous connectez </h1>
-		<form method="post" action="' . $this->router->urlFor('sendLogin') . '">
-			<label for ="email">Votre email :</label><input type="mail"/ name="email"></br>
-			<label for ="motdepasse">Votre mot de passe:</label><input type="password"/ name="motdepasse"></br>
+		<form method="post" class="login" action="' . $this->router->urlFor('sendLogin') . '">
+			<input type="mail" name="email" placeholder="Email...">
+			<input type="password" name="motdepasse" placeholder="Mot de passe...">
 			<input type="hidden" name="messageErreur" value="Vous vous êtes trompé de mot de passe">
 			<p> ' . $erreur . '</p>
 			<button>Login</button>
@@ -205,7 +205,7 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 			<h1>Documents</h1>
 			<ul>';
 			foreach ($recherche as $value) {
-				$search .= '<a href="'. $this->router->urlFor('view', ['id' => $value->id]) .'"><li> Nom : ' . $value->nom . ' | Type : '. $value->type . ' | Genre : '. $value->genre .'</li></a>';
+				$search .= '<li><a href="'. $this->router->urlFor('view', ['id' => $value->id]) .'"> Nom : ' . $value->nom . ' | Type : '. $value->type . ' | Genre : '. $value->genre .'</a></li>';
 			};
 			$search .='</ul>
 		</section>';

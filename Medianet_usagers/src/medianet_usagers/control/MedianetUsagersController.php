@@ -9,7 +9,8 @@ class MedianetUsagersController extends \mf\control\AbstractController {
     }
 
     public function viewHome(){
-        $vue = new \medianet_usagers\view\MedianetUsagersView();
+        $motsCles = \medianet_usagers\model\MotsCles::all();
+        $vue = new \medianet_usagers\view\MedianetUsagersView($motsCles);
         $vue->render("viewHome");
     }
         

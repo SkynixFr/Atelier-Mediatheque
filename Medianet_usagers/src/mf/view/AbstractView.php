@@ -121,7 +121,9 @@ abstract class AbstractView {
             if ($selector == 'viewHome') {
                 $styles .= '<link rel="stylesheet" href="'.$app_root.'/css'.'/style_home.css">';
             }
-
+            if ($selector == 'viewSearch') {
+                $styles .= '<link rel="stylesheet" href="'.$app_root.'/css'.'/style_search.css">';
+            }
             $styles .= '<link rel="stylesheet" href="'.$app_root.'/'.$file.'"> ';
         }
 

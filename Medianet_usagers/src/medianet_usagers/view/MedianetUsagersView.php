@@ -202,12 +202,13 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 		$recherche  = $this->data;
 		$search = '
 		<section>
-			<h1>Titre<h1>
+			<h1>Documents</h1>
 			<ul>';
 			foreach ($recherche as $value) {
 				$search .= "<li> Nom : $value->nom | Type : $value->type | Genre : $value->genre </li>";
 			};
-			$search .='</ul>';
+			$search .='</ul>
+		</section>';
 
 		return $search;
 	}

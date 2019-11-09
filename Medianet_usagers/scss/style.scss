@@ -12,7 +12,7 @@ html {
 	  		flex-direction: row;
 	  		justify-content: space-around;
 			background-color: #2a303a;
-			padding: 15px;
+			padding: 30px;
 			margin-bottom: 1em;
 			width: 100%;
 			font-weight: 570;
@@ -22,33 +22,41 @@ html {
 				color: white;
 				text-decoration: none;
 			}
+			& input {
+				width: 150px;
+			}
 		}
 	}
 	footer {
+		display: flex;
 		position: absolute;
 		bottom: 0;
 		width: 100%;
 		background-color: #2a303a;
-		padding: 15px;
-		margin-top: 1em;
-		color: white;
-		font-weight: 570;	
-		display: flex;
-		flex-wrap:  wrap;
-		flex-direction: row;
-		justify-content: space-around;
-		&> * {
-			margin-left: 2em;
-		}
-
-		&> a {
+		padding: 30px;
+		font-weight: 570;
+		box-sizing:border-box;
+		& ul {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			list-style: none;
+			box-sizing:border-box;
+			justify-content: space-around;
+			width: 100%;
 			color: white;
-
-		}
-
-		&> p {
-			margin-top: 0px;
-			margin-bottom: 0px;
+			margin: auto;
+			& li {
+				width: 30%;
+				text-align: center;
+				color: white;
+				border-radius: 5px;
+				box-sizing: border-box;
+				& a {
+					color: white;
+					text-decoration: none;
+				}
+			}
 		}
 	}
 }
@@ -61,7 +69,7 @@ html {
 	  		flex-direction: row;
 	  		justify-content: space-around;
 			background-color: #2a303a;
-			padding: 15px;
+			padding: 30px;
 			margin-bottom: 1em;
 			width: 100%;
 			font-weight: 570;
@@ -71,33 +79,41 @@ html {
 				color: white;
 				text-decoration: none;
 			}
+			& input {
+				width: 200px;
+			}
 		}
 	}
 	footer {
+		display: flex;
 		position: absolute;
 		bottom: 0;
 		width: 100%;
 		background-color: #2a303a;
-		padding: 15px;
-		margin-top: 1em;
-		color: white;
-		font-weight: 570;	
-		display: flex;
-		flex-wrap:  wrap;
-		flex-direction: row;
-		justify-content: space-around;
-		&> * {
-			margin-left: 2em;
-		}
-
-		&> a {
+		padding: 30px;
+		font-weight: 570;
+		box-sizing:border-box;
+		& ul {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			list-style: none;
+			box-sizing:border-box;
+			justify-content: space-around;
+			width: 100%;
 			color: white;
-
-		}
-
-		&> p {
-			margin-top: 0px;
-			margin-bottom: 0px;
+			margin: auto;
+			& li {
+				width: 30%;
+				text-align: center;
+				color: white;
+				border-radius: 5px;
+				box-sizing: border-box;
+				& a {
+					color: white;
+					text-decoration: none;
+				}
+			}
 		}
 	}
 }
@@ -119,34 +135,44 @@ html {
 				margin-right: 1%;
 				color: white;
 				text-decoration: none;
+				font-size: 1.2em;
+			}
+			& input {
+				width: 400px;
 			}
 		}
 	}
 	footer {
+		display: flex;
 		position: absolute;
 		bottom: 0;
 		width: 100%;
 		background-color: #2a303a;
 		padding: 30px;
-		margin-top: 1em;
-		color: white;
-		font-weight: 570;	
-		display: flex;
-		flex-wrap:  wrap;
-		flex-direction: row;
-		justify-content: space-around;
-		&> * {
-			margin-left: 2em;
-		}
-
-		&> a {
+		font-weight: 570;
+		box-sizing:border-box;
+		& ul {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			list-style: none;
+			box-sizing:border-box;
+			justify-content: space-around;
+			width: 100%;
 			color: white;
-
-		}
-
-		&> p {
-			margin-top: 0px;
-			margin-bottom: 0px;
+			margin: auto;
+			font-size: 1.2em;
+			& li {
+				width: 30%;
+				text-align: center;
+				color: white;
+				border-radius: 5px;
+				box-sizing: border-box;
+				& a {
+					color: white;
+					text-decoration: none;
+				}
+			}
 		}
 	}
 }
@@ -160,42 +186,51 @@ html {
 	  		justify-content: space-around;
 			background-color: #2a303a;
 			padding: 30px;
-			margin-bottom: 1em;
 			width: 100%;
 			font-weight: 570;
+			font-size: 1.4em;
 			& a {
 				margin-left: 1%;
 				margin-right: 1%;
 				color: white;
 				text-decoration: none;
 			}
+			& input {
+				width: 600px;
+			}
 		}
 	}
 	footer {
+		display: flex;
 		position: absolute;
 		bottom: 0;
 		width: 100%;
 		background-color: #2a303a;
 		padding: 30px;
-		margin-top: 1em;
-		color: white;
-		font-weight: 570;	
-		display: flex;
-		flex-wrap:  wrap;
-		flex-direction: row;
-		justify-content: space-around;
-		&> * {
-			margin-left: 2em;
-		}
-
-		&> a {
+		font-weight: 570;
+		box-sizing:border-box;
+		& ul {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			list-style: none;
+			box-sizing:border-box;
+			justify-content: space-around;
+			width: 100%;
 			color: white;
-
-		}
-
-		&> p {
-			margin-top: 0px;
-			margin-bottom: 0px;
+			margin: auto;
+			& li {
+				width: 30%;
+				text-align: center;
+				color: white;
+				border-radius: 5px;
+				box-sizing: border-box;
+				font-size: 1.4em;
+				& a {
+					color: white;
+					text-decoration: none;
+				}
+			}
 		}
 	}
 }

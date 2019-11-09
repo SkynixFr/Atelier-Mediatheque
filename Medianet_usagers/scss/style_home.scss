@@ -1,4 +1,4 @@
-$colorLi : #2e3943;
+$colorLi : chartreuse;
 @media screen and (max-width : 599px) {
 	body{
 		& section {
@@ -47,7 +47,6 @@ $colorLi : #2e3943;
 						color: black;
 						border-radius: 5px;
 						box-sizing: border-box;
-						overflow: hidden;
 					}
 				}
 			}
@@ -207,7 +206,7 @@ $colorLi : #2e3943;
 						text-align: center;
 						color: black;
 						border-radius: 5px;
-						box-sizing: border-box;
+						box-sizing: border-box;	
 					}
 				}
 			}

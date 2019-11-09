@@ -12,7 +12,8 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 	}
 
 	public function renderHeader(){
-		if ( !isset($_SESSION["mdp"])){ 
+
+		if ( !isset($_SESSION["mdp"]) && !isset($_SESSION["email"])){ 
 			$header = '
 			<header> 
 				<nav>
@@ -29,17 +30,15 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 		else{
 			$header ='			
 			<header> 
-				<nav>
-					<a href="' . $this->router->urlFor('home') . '" >Home </a>
-					<form method="POST" action ="' . $this->router->urlFor('search') . '">
-						<input type="text" name="recherche">
+				<a href="' . $this->router->urlFor('home') . '" >Home </a>
+				<form method="POST" action ="' . $this->router->urlFor('search') . '">
+						<input type="text" name="recherche" placeholder="Recherche..." title="Recherche">
 						<button>Rechercher</button>
-					</form>
-					<a href="' . $this->router->urlFor('usager') . '" >Mon compte </a>
-					<form method="post" action="' . $this->router->urlFor('logout') . '">
-						<button> Se déconnecter </button>
-					</form>
-				</nav>
+				</form>
+				<a href="' . $this->router->urlFor('usager', ['id' => $_SESSION['id']]) . '" >Mon compte </a>
+				<form method="post" action="' . $this->router->urlFor('logout') . '">
+					<button> Se déconnecter </button>
+				</form>
 			</header>';
 		}
 
@@ -111,7 +110,7 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 		$view = '
 			<section>
 				<div class="row">
-					<img src="'.$httprequest->root . '/' . $image.'" alt="photo_du_document">
+					<img src="'.$httprequest->root .'/'.$image.'" alt="photo_du_document">
 					<p>Disponibilité : '. $etat  .'</p>
 					'.$button.'
 					<ul>
@@ -168,15 +167,16 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 	
 	private function renderSignup(){
 		$signup = '
+		<h1>Créé votre compte</h1>
 		<form method="post" action="' . $this->router->urlFor('send') . '">
-			<input type="text" name="nom"/> </br>
-			<input type="text"/ name="prenom"></br>
-			<input type="date"/ name="datenaissance"></br>
-			<input type="mail"/ name="email"></br>
-			<input type="number" name="age"/></br>
-			<input type="text" name="adresse"/></br>
-			<input type="text"/ name="telephone"></br>
-			<input type="password"/ name="motdepasse"></br>
+			<label for ="nom">Nom :</label><input type="text" name="nom"/>
+			<label for ="prenom">Prenom :</label><input type="text"/ name="prenom">
+			<label for ="datenaissance">Votre date de naissance :</label><input type="date"/ name="datenaissance">
+			<label for ="email">Votre email :</label><input type="mail"/ name="email">
+			<label for ="age">Votre âge :</label><input type="number" name="age"/>
+			<label for ="adresse">Votre adresse :</label><input type="text" name="adresse"/>
+			<label for ="telephone">Votre numéro de téléphone :</label><input type="text"/ name="telephone">
+			<label for ="motdepasse">Votre mot de passe:</label><input type="password"/ name="motdepasse">
 			
 			<button>SignUp</button>
 		</form>
@@ -188,8 +188,8 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 		$login = '
 		<h1>Vous connectez </h1>
 		<form method="post" action="' . $this->router->urlFor('sendLogin') . '">
-			<input type="mail"/ name="email"></br>
-			<input type="password"/ name="motdepasse"></br>
+			<label for ="email">Votre email :</label><input type="mail"/ name="email"></br>
+			<label for ="motdepasse">Votre mot de passe:</label><input type="password"/ name="motdepasse"></br>
 			<input type="hidden" name="messageErreur" value="Vous vous êtes trompé de mot de passe">
 			<p> ' . $erreur . '</p>
 			<button>Login</button>

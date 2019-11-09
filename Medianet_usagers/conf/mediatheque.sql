@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 08 Novembre 2019 à 09:23
+-- Généré le :  Sam 09 Novembre 2019 à 10:12
 -- Version du serveur :  5.7.27-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.1
 
@@ -62,36 +62,14 @@ INSERT INTO `document` (`id`, `ref`, `nom`, `description`, `disponible`, `indisp
 -- --------------------------------------------------------
 
 --
--- Structure de la table `media`
+-- Structure de la table `emprunt`
 --
 
-CREATE TABLE `media` (
+CREATE TABLE `emprunt` (
   `id` int(11) NOT NULL,
-  `reference` int(11) NOT NULL,
-  `type` int(11) NOT NULL
+  `usager` int(11) DEFAULT NULL,
+  `document` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `media`
---
-
-INSERT INTO `media` (`id`, `reference`, `type`) VALUES
-(1, 1, 1),
-(2, 2, 1),
-(3, 3, 1),
-(4, 4, 1),
-(5, 5, 1),
-(9, 6, 4),
-(10, 7, 4),
-(11, 11, 5),
-(12, 12, 5),
-(13, 8, 6),
-(14, 9, 7),
-(15, 10, 9),
-(16, 9, 9),
-(17, 13, 10),
-(18, 14, 10),
-(19, 15, 10);
 
 -- --------------------------------------------------------
 
@@ -186,7 +164,7 @@ CREATE TABLE `usagers` (
   `id` int(11) NOT NULL,
   `nom` varchar(20) DEFAULT NULL,
   `prenom` varchar(20) DEFAULT NULL,
-  `motdepasse` varchar(15) DEFAULT NULL,
+  `motdepasse` varchar(255) DEFAULT NULL,
   `datenaissance` date DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
@@ -205,7 +183,8 @@ INSERT INTO `usagers` (`id`, `nom`, `prenom`, `motdepasse`, `datenaissance`, `em
 (1, 'Zinni', 'Arthur', '', '1998-02-15', 'arthurzinni@yahoo.fr', 21, '21, rue des tulipes 54000 Nancy', '0612457898', 0, NULL, NULL),
 (2, 'Pallara', 'Hugo', '', '1998-12-05', 'pallarahugo@yahoo.fr', 21, '19, rue des roses 54000 Nancy', '0623568912', 0, NULL, NULL),
 (3, 'Meligner', 'Ludovic', '', '1998-06-25', 'melignerludovic@yahoo.fr', 21, '56, rue des lilas 54000 Nancy', '0715936248', 0, NULL, NULL),
-(4, 'Day', 'romain', '', '1998-03-18', 'dayromain@yahoo.fr', 21, '73, rue des pissenlit 54000 Nancy', '0745917283', 0, NULL, NULL);
+(4, 'Day', 'romain', '', '1998-03-18', 'dayromain@yahoo.fr', 21, '73, rue des pissenlit 54000 Nancy', '0745917283', 0, NULL, NULL),
+(5, 'Yo', 'YIo', '$2y$10$mnU8BoLMnCV.oHEh2F4uMuVzuDrgr6.6kj2P4/Y6GbRKnrzQfJPLi', '2019-11-04', 'yo@gmail.com', 1, '25, rue des poulpes', '0606060606', 0, NULL, NULL);
 
 --
 -- Index pour les tables exportées
@@ -218,10 +197,12 @@ ALTER TABLE `document`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `media`
+-- Index pour la table `emprunt`
 --
-ALTER TABLE `media`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `emprunt`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `document` (`document`),
+  ADD KEY `usager` (`usager`);
 
 --
 -- Index pour la table `motscles`
@@ -251,10 +232,10 @@ ALTER TABLE `usagers`
 ALTER TABLE `document`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT pour la table `media`
+-- AUTO_INCREMENT pour la table `emprunt`
 --
-ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+ALTER TABLE `emprunt`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `motscles`
 --
@@ -269,7 +250,18 @@ ALTER TABLE `recherche`
 -- AUTO_INCREMENT pour la table `usagers`
 --
 ALTER TABLE `usagers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `emprunt`
+--
+ALTER TABLE `emprunt`
+  ADD CONSTRAINT `emprunt_ibfk_1` FOREIGN KEY (`document`) REFERENCES `document` (`id`),
+  ADD CONSTRAINT `emprunt_ibfk_2` FOREIGN KEY (`usager`) REFERENCES `usagers` (`id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

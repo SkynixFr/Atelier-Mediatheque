@@ -205,7 +205,7 @@ class MedianetUsagersView extends \mf\view\AbstractView {
 			<h1>Documents</h1>
 			<ul>';
 			foreach ($recherche as $value) {
-				$search .= "<li> Nom : $value->nom | Type : $value->type | Genre : $value->genre </li>";
+				$search .= '<a href="'. $this->router->urlFor('view', ['id' => $value->id]) .'"><li> Nom : ' . $value->nom . ' | Type : '. $value->type . ' | Genre : '. $value->genre .'</li></a>';
 			};
 			$search .='</ul>
 		</section>';

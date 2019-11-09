@@ -10,9 +10,7 @@
     width: 30%;
     margin: auto;
     border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-}
+    border-bottom-right-radius: 5px; } }
 @media screen and (max-width: 601px) {
   form {
     margin: auto;
@@ -24,9 +22,7 @@
     min-width: 300px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    width: 30%;
-  }
-}
+    width: 30%; } }
 h1 {
   border-radius: 5px;
   padding: 10px;
@@ -39,7 +35,6 @@ h1 {
   margin: auto;
   background-color: #2a303a;
   border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-}
+  border-top-left-radius: 5px; }
 
 /*# sourceMappingURL=style_signup.css.map */

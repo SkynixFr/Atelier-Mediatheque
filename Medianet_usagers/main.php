@@ -29,7 +29,6 @@ use \medianet_usagers\model\Usager;
 $router = new Router();
 $document = new Document();
 $motscles = new MotsCles();
-$type = new Type();
 $usager = new Usager();
  
 // Définition de la route par défaut

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Sam 09 Novembre 2019 à 11:36
+-- Généré le :  Mar 12 Novembre 2019 à 14:28
 -- Version du serveur :  5.7.27-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.1
 
@@ -43,7 +43,7 @@ CREATE TABLE `document` (
 --
 
 INSERT INTO `document` (`id`, `ref`, `nom`, `description`, `disponible`, `indisponible`, `image`, `type`, `genre`) VALUES
-(1, 'C-001', 'Hit de l\'été 2019', 'Tous les plus grands hit de l\'été.', 1, NULL, 'images/hitdelete.jpg', 'musique', 'cd'),
+(1, 'C-001', 'Hit de l\'été 2019', 'Tous les plus grands hit de l\'été.', 1, NULL, 'images/hitdelete2019.jpg', 'musique', 'cd'),
 (2, 'C-002', 'On m\'appelle l\'ovni', 'Un des plus grands bruits de ce monde, le nouveau single de Jul.', 1, NULL, 'images/julovni.jpg', 'musique', 'cd'),
 (3, 'C-003', 'Mon pays c\'est l\'amour', 'Dernier album de Johnny Hallyday', 1, NULL, 'images/johnnyhallyday.jpg', 'musique', 'cd'),
 (4, 'C-004', 'J\'suis pas rassuré', 'Album 2003 de Zambla', 1, NULL, 'images/zambla.jpg', 'musique', 'cd'),
@@ -71,6 +71,15 @@ CREATE TABLE `emprunt` (
   `document` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `emprunt`
+--
+
+INSERT INTO `emprunt` (`id`, `usager`, `document`) VALUES
+(1, 5, 1),
+(2, 5, 15),
+(3, 5, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -91,7 +100,6 @@ INSERT INTO `motscles` (`id`, `motscles`) VALUES
 (2, 'cd'),
 (3, 'dvd'),
 (6, 'livre'),
-(7, 'comédie'),
 (8, 'aventure'),
 (9, 'amour'),
 (10, 'romance'),
@@ -126,7 +134,8 @@ INSERT INTO `motscles` (`id`, `motscles`) VALUES
 (40, 'guide de minecraft'),
 (41, 'minecraft'),
 (42, 'apprendre à coder pour les nuls'),
-(43, 'coder');
+(43, 'coder'),
+(44, 'horreur');
 
 -- --------------------------------------------------------
 
@@ -145,14 +154,69 @@ CREATE TABLE `recherche` (
 --
 
 INSERT INTO `recherche` (`id`, `reference`, `motcle`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 2, 1),
-(4, 2, 2),
-(5, 6, 3),
-(6, 6, 7),
-(7, 7, 3),
-(8, 7, 7);
+(9, 1, 1),
+(10, 1, 2),
+(11, 1, 13),
+(12, 1, 15),
+(13, 2, 1),
+(14, 2, 2),
+(15, 2, 16),
+(16, 2, 18),
+(17, 3, 1),
+(18, 3, 2),
+(19, 3, 19),
+(20, 3, 20),
+(21, 4, 1),
+(22, 4, 2),
+(23, 4, 21),
+(24, 4, 22),
+(25, 5, 1),
+(26, 5, 2),
+(27, 5, 14),
+(28, 5, 15),
+(29, 6, 3),
+(30, 6, 24),
+(31, 6, 23),
+(32, 7, 3),
+(33, 7, 25),
+(34, 7, 26),
+(35, 8, 3),
+(36, 8, 27),
+(37, 8, 28),
+(38, 8, 29),
+(39, 9, 3),
+(40, 8, 9),
+(41, 8, 10),
+(42, 9, 11),
+(43, 9, 30),
+(44, 9, 31),
+(45, 10, 3),
+(46, 10, 32),
+(47, 10, 33),
+(48, 11, 6),
+(49, 11, 8),
+(50, 11, 11),
+(51, 11, 34),
+(52, 11, 35),
+(53, 12, 6),
+(54, 12, 8),
+(55, 12, 36),
+(56, 12, 37),
+(57, 13, 6),
+(58, 13, 38),
+(59, 13, 39),
+(60, 13, 12),
+(61, 14, 12),
+(62, 14, 6),
+(63, 14, 40),
+(64, 14, 41),
+(65, 15, 6),
+(66, 15, 42),
+(67, 15, 43),
+(68, 15, 12),
+(69, 7, 24),
+(70, 9, 44),
+(71, 10, 11);
 
 -- --------------------------------------------------------
 
@@ -235,17 +299,17 @@ ALTER TABLE `document`
 -- AUTO_INCREMENT pour la table `emprunt`
 --
 ALTER TABLE `emprunt`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `motscles`
 --
 ALTER TABLE `motscles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT pour la table `recherche`
 --
 ALTER TABLE `recherche`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT pour la table `usagers`
 --
